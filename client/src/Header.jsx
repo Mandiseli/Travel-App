@@ -1,6 +1,6 @@
 export default function Header(){
     return(
-        <header className='p-4 flex justify-between'>
+        <header className='flex justify-between'>
         <a href="" className="flex items-center gap-1">
           MM<span className='font-bold text-xl'>TRAVELS</span>
           </a>
