@@ -44,16 +44,21 @@ app.post('/login', async(req,res) =>{
     if (userDoc) {
         const passOk = bcrypt.compareSync(password, userDoc.password);
         if (passOk){
-            jwt.sign({email:userDoc.email, id:userDoc._id})
-            res.cookie('token', '').json('password Ok')
+            jwt.sign({email:userDoc.email, id:userDoc._id}, jwtSecret{
+                if (err) throw err;
+                res.cookie('token', '').json('password Ok')
+            })
+            
         } else {
-            res.status(422).json('password not ok')
+            res.status(422).json('Password not ok')
         }
     } else {
         res.json('Not found')
     }
 })
 
-
+app.get('/profile', (req,res) =>{
+    
+} )
 
 app.listen(4000);
